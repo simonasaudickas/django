@@ -1,8 +1,19 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .forms import StudentForm
 
 # Create your views here.
 def index(request):
     return render(request, 'base.html')
 def say_hello(request):
     return render(request, 'main.html', {"name":"mygtukas"})
+
+def simple_form(request, metthods=['GET', 'POST']):
+    form = StudentForm()
+    if request.method == 'POST':
+        print(request.POST)
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form': form}
+    return render (request, 'simple_form.html', context)

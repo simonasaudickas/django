@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>forma</h3>
+<hr>
+<form aciton="" method="post">
+    {% csrf_token %}
+    <div>
+        <p>Suvesti varda {{form.name }}</p>
+    </div>
+    <div>
+        <p>Suvesti apibudinima {{form.desc}}</p>
+    </div>
+    <div > {{form.pub_dt}}</div>
+    <div></div>
+  <input type="submit">
+</form>
+</body>
+</html>

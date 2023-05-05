@@ -4,5 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.index),
-    path('mygtukas/', views.say_hello)
+    path('mygtukas/', views.say_hello),
+    path('forma/', views.simple_form),
+
 ]

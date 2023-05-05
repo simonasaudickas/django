@@ -84,6 +84,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django',
+        'SCHEMA': 'public',
         'USER': 'puslapis',
         'PASSWORD': 'blabla',
     }
