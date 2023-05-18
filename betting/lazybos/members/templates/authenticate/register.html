@@ -1,0 +1,31 @@
+{%extends "base.html" %}
+{%block main%}
+<h1 align="center">Sukurti vartotoją</h1>
+<hr>
+<br>
+
+<form method="POST" action ="">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label class="form-label">Vartotojo vardas</label>
+      <input type="username" class="form-control" name="username">
+
+  </div>
+    <div class="mb-3">
+    <label  class="form-label">El.Paštas</label>
+       <input type="email" class="form-control" name="email">
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Slaptažodis</label>
+     <input type="password" class="form-control" name="password1">
+  </div>
+  <div class="mb-3">
+    <label  class="form-label">Pakartoti slaptažodį</label>
+    <input type="password" class="form-control" name="password2">
+  </div>
+  <button type="submit" class="btn btn-primary">Sukurti vartotoją</button>
+</form>
+{{form.errors}}
+<hr><br>
+<div class="justify-content-center links">Jau turi paskyra?<a href="{% url 'login'%}">Prisijunk!</a></div>
+    {%endblock main%}

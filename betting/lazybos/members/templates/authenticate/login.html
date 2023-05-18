@@ -1,0 +1,30 @@
+{%extends "base.html" %}
+{%block main%}
+<div class="row" >
+    <div class="col-4"></div>
+    <div class="col-4">
+<h1 style="font-family:Roboto Slab;" align="center">Prisijungti</h1>
+{%for message in mesages%}
+
+<p id="message">{{message}}</p>
+{%endfor%}
+<form method = "POST">
+    {% csrf_token %}
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Vartotojo vardas</label>
+    <input type="username" name= "username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Slaptažodis</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+ <button type="submit" class="btn btn-primary">Prisijungti</button>
+<hr><br>
+<p align="center">Neturi paskyros?<a href="{% url 'register'%}"> Susikurti paskyrą</a></p>
+</form>
+{{form.errors}}
+
+    </div>
+<div class="col-4"></div>
+</div>
+{%endblock main%}

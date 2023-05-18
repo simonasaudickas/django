@@ -8,7 +8,7 @@ def index(request):
 def say_hello(request):
     return render(request, 'main.html', {"name":"mygtukas"})
 
-def simple_form(request, metthods=['GET', 'POST']):
+def simple_form(request, methods=['GET', 'POST']):
     form = StudentForm()
     if request.method == 'POST':
         print(request.POST)
@@ -17,3 +17,6 @@ def simple_form(request, metthods=['GET', 'POST']):
             form.save()
     context = {'form': form}
     return render (request, 'simple_form.html', context)
+
+def komanda(request, methods = ['GET', 'POST']):
+    return render(request,'komanda.html')

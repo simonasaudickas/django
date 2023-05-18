@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h3>forma</h3>
-<hr>
+{%extends "base.html"%}
+{%block main%}
+
 <form aciton="" method="post">
     {% csrf_token %}
     <div>
@@ -19,5 +13,4 @@
     <div></div>
   <input type="submit">
 </form>
-</body>
-</html>
+{%endblock main%}
