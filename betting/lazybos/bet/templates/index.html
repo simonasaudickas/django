@@ -1,0 +1,92 @@
+{% extends 'base.html'%}
+
+{%block main%}
+<img id="myImg" src="http://teipsiko.lt/images/teipsiko_headeris.jpg" height="270px" witdth="920px" alt="Tei-Psi-Ko pagrindinis" onclick="fadeOutEffect()">
+<p>Click the button to get the URL of the image.</p>
+
+<script>
+function fadeOutEffect() {
+    var fadeTarget = document.getElementById("myImg");
+    var fadeEffect = setInterval(function () {
+        if (!fadeTarget.style.opacity) {
+            fadeTarget.style.opacity = 1;
+        }
+        if (fadeTarget.style.opacity > 0) {
+            fadeTarget.style.opacity -= 0.1;
+        } else {
+            clearInterval(fadeEffect);
+        }
+    }, 200);
+}
+
+document.getElementById("myImg").addEventListener('click', fadeOutEffect);
+
+
+</script>
+<h2 align="center">Paslaugos</h2>
+  <div class="card text-center">
+  <div class="card-header">
+
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Specialus pasiūlymas</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+  <div class="card-footer text-body-secondary">
+    2 days ago
+  </div>
+</div>
+  <br>
+  <hr>
+  <div class="row">
+
+<div class="col-4" align="center">
+  <div class="card" style="width: 300px;">
+    <img src="https://media.istockphoto.com/id/1218961153/photo/art-museum.jpg?s=612x612&w=0&k=20&c=9fK54fu1mjzFjDOSqg_jfrMy4Hkp8vsmImB7rLrbhJs=" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Pavadinimas 1</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" style="float: right;">Skaityti daugiau..</a>
+  </div>
+    </div>
+  </div>
+  <div class="col-4" align="center">
+  <div class="card" style="width:300px;">
+  <img src="https://media.istockphoto.com/id/155151757/photo/empty-frame-on-wall.jpg?s=612x612&w=0&k=20&c=KCqkkxhPZZzCu8mWf11zFooIUNPCAcnEEp7nbe0_W1k=" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Pavadinimas 2</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" style="float: right;">Skaityti daugiau..</a>
+  </div>
+  </div>
+    </div>
+    <div class="col-4" align="center">
+    <div class="card" style="width:300px;">
+  <img src="https://cdn.pixabay.com/photo/2016/09/08/22/43/books-1655783_1280.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Pavadinimas 3</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" style="float: right;">Skaityti daugiau..</a>
+  </div></div>
+      </div>
+
+</div>
+</div>
+<hr>
+<div class="container">
+  <h2 align="center">Komanda</h2>
+  <div class = "row">
+
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+
+    </div>
+    <div class="col-4">
+
+    </div>
+  </div>
+</div>
+{%endblock main%}
