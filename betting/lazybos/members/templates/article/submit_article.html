@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+
+{%block main%}
+<br>
+<h1 align="center">Rašyti straipsnį</h1>
+
+<form method="POST" action ="">
+<div class="mb-3">
+    <label class="form-label">ID</label>
+    <input type="number" class="form-control" name="id">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Pavadinimas</label>
+    <input type="name" class="form-control" name="pavadinimas">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Autorius</label>
+    <input type="text" class="form-control" name="autorius">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Pareigos</label>
+    <input type="text" class="form-control" name="pareigos">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Straipsnis</label>
+    <input type="text" class="form-control" name="straipsnis">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Publikacijos data</label>
+    <input type="date" class="form-control" name="pub_dt">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Kategorija</label>
+    <input type="text" class="form-control" name="kategorija">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Paveikslėlis</label>
+    <input type="file" class="form-control" name="foto">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {% csrf_token %}
+</form>
+{{form.errors}}
+{%endblock main%}
+

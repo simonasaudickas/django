@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-from .forms import CreateUserForm
+from .forms import CreateUserForm, CreateArticleForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -43,6 +43,21 @@ def user_registration(request):
 def profilis(request):
     context= {}
     return render(request, 'authenticate/profile.html', context)
+
+@login_required(login_url ='login')
+def post_article(request):
+    form = CreateArticleForm()
+    if request.method == 'POST':
+        form = CreateArticleForm(request.POST)
+        form.save()
+        pavadinimas = form.cleaned_data.get('pavadinimas')
+        messages.success(request, 'Straipsnis: ' + pavadinimas +' buvo sekmingai sukurtas')
+        return redirect('login')
+
+    context = {'form': form}
+    return render(request, 'article/submit_article.html', context)
+
+
 """
 def my_view(request):
     

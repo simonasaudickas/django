@@ -1,9 +1,10 @@
 {% extends 'base.html'%}
 
 {%block main%}
-<img id="myImg" src="http://teipsiko.lt/images/teipsiko_headeris.jpg" height="270px" witdth="920px" alt="Tei-Psi-Ko pagrindinis" onclick="fadeOutEffect()">
+<div class="container gy-0">
+<img id="myImg" src="http://teipsiko.lt/images/teipsiko_headeris.jpg" width="100%"  alt="Tei-Psi-Ko pagrindinis" onclick="fadeOutEffect()">
 <p>Click the button to get the URL of the image.</p>
-
+</div>
 <script>
 function fadeOutEffect() {
     var fadeTarget = document.getElementById("myImg");

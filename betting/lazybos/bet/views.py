@@ -20,3 +20,7 @@ def simple_form(request, methods=['GET', 'POST']):
 
 def komanda(request, methods = ['GET', 'POST']):
     return render(request,'komanda.html')
+
+def article(request):
+    context = {}
+    return render(request, 'article/straipsniai.html', context)

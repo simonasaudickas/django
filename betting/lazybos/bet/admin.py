@@ -20,5 +20,7 @@ class BetAdmin(admin.ModelAdmin):
     ]
     inlines = [ChoiceInLine]
 
+
+
 admin.site.register(Student,StudentAdmin)
 admin.site.register(Bet, BetAdmin)

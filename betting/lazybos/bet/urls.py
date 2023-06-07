@@ -7,5 +7,6 @@ urlpatterns = [
     path('mygtukas/', views.say_hello),
     path('forma/', views.simple_form),
     path('komanda/', views.komanda, name='komanda'),
+    path('article/', views.article, name='straipsniai'),
 
 ]
