@@ -25,5 +25,6 @@ urlpatterns = [
     path('', include('bet.urls')),
     path('members/login/', include('django.contrib.auth.urls')),
     path('members/', include('members.urls')),
+    path('blog/', include('blog.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

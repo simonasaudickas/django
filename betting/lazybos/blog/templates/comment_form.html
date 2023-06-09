@@ -1,0 +1,14 @@
+{% if form.errors %}
+  <ul class="errorlist">
+    {% for error in form.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<h2>Add Comment</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Add Comment</button>
+</form>
