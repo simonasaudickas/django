@@ -6,9 +6,9 @@
   </ul>
 {% endif %}
 
-<h2>Add Comment</h2>
+<h2>Komentuoti</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Add Comment</button>
+  <button type="submit">Siųsti komentarą</button>
 </form>

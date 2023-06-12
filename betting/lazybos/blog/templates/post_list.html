@@ -1,11 +1,21 @@
 {%extends 'base.html'%}
 {%block main%}
+<div class="row">
 {% for post in posts %}
-  <h2><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h2>
-  <p>{{ post.content }}</p>
-  <hr>
-{% empty %}
-  <p>No posts available.</p>
-{% endfor %}
+  <div class="col-md-3">
+  <div class="card" >
+    <img src="https://media.istockphoto.com/id/1218961153/photo/art-museum.jpg?s=612x612&w=0&k=20&c=9fK54fu1mjzFjDOSqg_jfrMy4Hkp8vsmImB7rLrbhJs=" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h5>
+      <p class="card-text">{{ post.content }}</p>
+      <a href="{% url 'post_detail' post.pk %}" style="float: right;">Skaityti daugiau..</a>
+       <hr>
+
+  </div>
+    </div>
+  </div>
+{% cycle '' '' '' '</div><hr><div class="row">' %}
+  {% endfor %}
+
 
 {%endblock main%}
