@@ -46,13 +46,15 @@ def profilis(request):
 
 @login_required(login_url ='login')
 def post_article(request):
-    form = CreateArticleForm()
     if request.method == 'POST':
         form = CreateArticleForm(request.POST)
-        form.save()
-        pavadinimas = form.cleaned_data.get('pavadinimas')
-        messages.success(request, 'Straipsnis: ' + pavadinimas +' buvo sekmingai sukurtas')
-        return redirect('login')
+        if form.is_valid():
+            form.save()
+            pavadinimas = form.cleaned_data.get('pavadinimas')
+            messages.success(request, 'Straipsnis: ' + pavadinimas + ' buvo sėkmingai sukurtas')  # Corrected Lithuanian characters
+            return redirect('login')
+    else:
+        form = CreateArticleForm()
 
     context = {'form': form}
     return render(request, 'article/submit_article.html', context)

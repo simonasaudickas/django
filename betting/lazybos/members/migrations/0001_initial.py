@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
                 ('straipsnis', models.TextField()),
                 ('pub_dt', models.DateTimeField(auto_now=True)),
                 ('edit_dt', models.DateTimeField()),
-                ('foto', models.ImageField(upload_to='media/images/')),
+                ('foto', models.ImageField(upload_to='static/images/')),
                 ('autorius', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='members.author')),
                 ('kategorija', models.ManyToManyField(to='members.category')),
             ],

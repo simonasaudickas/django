@@ -24,3 +24,6 @@ def komanda(request, methods = ['GET', 'POST']):
 def article(request):
     context = {}
     return render(request, 'article/straipsniai.html', context)
+
+def test(request):
+    return render(request, 'testing_java.html')

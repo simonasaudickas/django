@@ -1,15 +1,38 @@
-{%extends 'base.html'%}
-{%block main%}
-<h2>{{ post.title }}</h2>
-<p>{{ post.content }}</p>
-<hr>
-<h3>Komentarai</h3>
-{% for comment in comments %}
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container-md">
+  <div class="row">
+    <div class="col">
+  <h2>{{ post.pavadinimas }}</h2>
+  <p style="font-style: italic;">Autorius: {{post.author|safe}}</p>
+  <div class="float-sm-start">
+    <img src="{{ post.foto.url }}" height="200px" width="180px" style="float: left;margin: 0px 25px 0px 0px" alt="Foto">
+  </div>
+
+  <p>{{ post.turinys|safe }}</p>
+      </div>
+  </div>
+  <br>
+  <div class="row">
+    <div class="col">
+  <a href="{% url 'post_update' pk=post.pk %}" class="btn btn-outline-primary">Taisyti</a>
+    </div>
+    </div>
+  <hr>
+  <h3>Komentarai</h3>
+  {% for comment in comments %}
   <p>{{ comment.content }}</p>
   <p>By: {{ comment.author }}</p>
   <hr>
-{% empty %}
-  <p>No comments available.</p>
-{% endfor %}
+  {% empty %}
+  <p>Nėra publikuotų komentarų.</p>
+  {% endfor %}
 
-{%endblock main%}
+</div>
+{% endblock main %}
+
+
+
+
+

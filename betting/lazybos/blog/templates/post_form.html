@@ -1,3 +1,5 @@
+{%extends 'base.html'%}
+{%block main%}
 {% if form.errors %}
   <ul class="errorlist">
     {% for error in form.errors %}
@@ -6,8 +8,10 @@
   </ul>
 {% endif %}
 
-<form method="post">
+<form method="post" enctype="multipart/form-data">
   {% csrf_token %}
+
   {{ form.as_p }}
-  <button type="submit">Save</button>
+  <button type="submit">Išsaugoti</button>
 </form>
+{%endblock main%}

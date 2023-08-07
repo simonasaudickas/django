@@ -1,21 +1,58 @@
-{%extends 'base.html'%}
-{%block main%}
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
 <div class="row">
-{% for post in posts %}
-  <div class="col-md-3">
-  <div class="card" >
-    <img src="https://media.istockphoto.com/id/1218961153/photo/art-museum.jpg?s=612x612&w=0&k=20&c=9fK54fu1mjzFjDOSqg_jfrMy4Hkp8vsmImB7rLrbhJs=" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a></h5>
-      <p class="card-text">{{ post.content }}</p>
-      <a href="{% url 'post_detail' post.pk %}" style="float: right;">Skaityti daugiau..</a>
-       <hr>
-
-  </div>
+  {% for post in page_obj %}
+    <div class="col-md-3">
+      <div class="card mb-4">
+        <div class="photo-container">
+          <a href="{% url 'post_detail' post.pk %}">
+            <img src="{{ post.foto.url }}" height="320px" width="255px" alt="Foto" align="center">
+          </a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'post_detail' post.pk %}">{{ post.pavadinimas }}</a></h5>
+          <p class="card-text">{{ post.turinys|safe|slice:":100" }}</p>
+          <a href="{% url 'post_detail' post.pk %}" style="float: right;">Skaityti daugiau..</a>
+        </div>
+      </div>
     </div>
+    {% if forloop.counter|divisibleby:4 and not forloop.last %}
   </div>
-{% cycle '' '' '' '</div><hr><div class="row">' %}
-  {% endfor %}
+    <div class="row">
+    {% endif %}
+    {% if forloop.last and not forloop.counter|divisibleby:4 %}
+      </div>
+    {% endif %}
+{% endfor %}
 
+  <div class="row">
+     <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li class="page-item">
+      <a class="page-link" href="?page=1">Pirmas puslapis</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Atgal</a>
+    </li>
+    {% endif %}
 
-{%endblock main%}
+    <li class="page-item">
+       <a class="page-link" href="?page={{ page_obj.number }}">{{ page_obj.number }}</a>
+    </li>
+
+    {% if page_obj.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="?page={{ page_obj.next_page_number }}">Kitas puslapis</a>
+    </li>
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Paskutinis puslapis</a>
+          </li>
+    {% endif %}
+  </ul>
+</nav>
+</div>
+
+{% endblock main %}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS to dim the photo on rollover */
+    .photo-container {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+    }
+
+    .photo-container img {
+      transition: opacity 0.3s;
+    }
+
+    .photo-container:hover img {
+      opacity: 0.6; /* Change this value to adjust the dimming effect */
+    }
+  </style>
+</head>
+<body>
+  <!-- HTML structure -->
+  <div class="photo-container">
+    <a href="https://example.com">
+      <img src="https://image.z500.pl/eyJidWNrZXQiOiJ6NTAwLXByb2QiLCJrZXkiOiJpbWFnZXMvcHJvamVjdF9wcm9qZWN0aW9uLzQ1ODUyLzE2NDE5NzE5OTZJOEpBWS5wbmciLCJlZGl0cyI6eyJqcGVnIjp7InF1YWxpdHkiOjgwfSwiZmxhdHRlbiI6eyJiYWNrZ3JvdW5kIjp7InIiOjI1NSwiZyI6MjU1LCJiIjoyNTV9fSwicmVzaXplIjp7IndpZHRoIjoxNDAzLCJmaXQiOiJvdXRzaWRlIn19fQ==" alt="Photo" width="300" height="200">
+    </a>
+  </div>
+
+  <script>
+    // JavaScript to open the link on click
+    const photoContainer = document.querySelector('.photo-container');
+    const link = photoContainer.querySelector('a');
+
+    photoContainer.addEventListener('click', () => {
+      window.open(link.href, '_blank'); // Opens the link in a new tab/window
+    });
+  </script>
+</body>
+</html>

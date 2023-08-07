@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Post, Comment, Tag
+from .models import Post, Comment, Tag, Kategorija
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'publication_date')
-    search_fields = ('title', 'content')
+    list_display = ('pavadinimas', 'author', 'publication_date','foto')
+    search_fields = ('pavadinimas', 'turinys')
     list_filter = ('author', 'publication_date')
 
 @admin.register(Comment)
@@ -18,3 +18,5 @@ class TagAdmin(admin.ModelAdmin):
     list_display = ('name',)
     search_fields = ('name',)
     list_filter = ('name',)
+
+admin.site.register(Kategorija)

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bet',
     'members',
     'blog',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +123,7 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-MEDIA_ROOT = BASE_DIR/'media'
+MEDIA_ROOT = BASE_DIR/'static'
 MEDIA_URL = '/media/'
 
 # Static files (CSS, JavaScript, Images)
@@ -134,3 +135,4 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_URL= '/members/login/'

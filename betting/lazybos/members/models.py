@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
+
 User = get_user_model()
 class Autorius(models.Model):
     User = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -16,7 +17,7 @@ class Kategorija(models.Model):
 
 # Create your models here.
 class Article(models.Model):
-    id = models.AutoField(primary_key=True)
+    auto_increment_id = models.AutoField(primary_key=True)
     pavadinimas = models.CharField(max_length=100)
     autorius = models.ForeignKey(Autorius, on_delete=models.CASCADE)
     pareigos = models.CharField(max_length=50)
@@ -25,6 +26,6 @@ class Article(models.Model):
     pub_dt = models.DateTimeField(auto_now=True)
     edit_dt = models.DateTimeField(auto_now=False)
     kategorija = models.ManyToManyField(Kategorija)
-    foto = models.ImageField(upload_to='media/images/')
+    foto = models.ImageField(upload_to='static/images/')
     def __str__(self):
         return self.pavadinimas

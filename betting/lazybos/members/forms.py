@@ -8,7 +8,9 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
-class CreateArticleForm(Article):
-    class Mete:
-        model= Article
-        fields = ['id','pavadinimas', 'autorius', 'pareigos', 'straipsnis', 'pub_dt', 'edit_dt', 'kategorija','foto']
+class CreateArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = '__all__'
+        """fields = ['pavadinimas', 'autorius', 'pareigos', 'straipsnis', 'pub_dt', 'edit_dt', 'kategorija','foto']"""
+        exclude = ['auto_increment_id',]
