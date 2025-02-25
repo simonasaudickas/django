@@ -15,7 +15,7 @@ class Post(models.Model):
     publication_date = models.DateTimeField(auto_now_add=True)
     tags = models.ManyToManyField('Tag')
     kategorija = models.ManyToManyField(Kategorija)
-    foto = models.ImageField(upload_to='images/')
+    foto = models.ImageField(upload_to='images/', null=True, blank=True)
 
     def __str__(self):
         return self.pavadinimas

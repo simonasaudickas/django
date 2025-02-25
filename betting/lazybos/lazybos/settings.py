@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-%qfzlaw_w60su83%myqo457bf$3t9(gcz$6puw&%+$l-evqhxc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
 
 # Application definition
@@ -76,14 +76,14 @@ WSGI_APPLICATION = 'lazybos.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-""" DATABASES = {
+DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-}"""
+}
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django',
@@ -91,7 +91,7 @@ DATABASES = {
         'USER': 'puslapis',
         'PASSWORD': 'blabla',
     }
-}
+}"""
 
 
 # Password validation
@@ -123,14 +123,18 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-MEDIA_ROOT = BASE_DIR/'static'
-MEDIA_URL = '/media/'
+# Media files (uploaded images, etc.)
+MEDIA_URL = '/media/'  # URL for media files
+MEDIA_ROOT = BASE_DIR / 'media'  # Store media files in 'media/' folder
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
-
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / "lazybos/static",  # Path to the static directory
+]
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

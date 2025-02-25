@@ -1,14 +1,18 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block main %}
 <div class="container-md">
   <div class="row">
     <div class="col">
   <h2>{{ post.pavadinimas }}</h2>
   <p style="font-style: italic;">Autorius: {{post.author|safe}}</p>
-  <div class="float-sm-start">
-    <img src="{{ post.foto.url }}" height="200px" width="180px" style="float: left;margin: 0px 25px 0px 0px" alt="Foto">
+ {%if post.foto %}
+      <div class="float-sm-start">
+    <img src="{{ post.foto.url }}" height="300px" width="400px" style="float: left; margin: 0px 25px 0px 0px" alt="Foto">
   </div>
+      {%else%}
+      <p>Nuotraukos nėra</p>
+      {%endif%}
 
   <p>{{ post.turinys|safe }}</p>
       </div>
