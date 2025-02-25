@@ -1,5 +1,5 @@
 {% extends 'base.html'%}
-
+{% include 'postings.html' %}
 {%block main%}
 <div class="container gy-0">
 <img id="myImg" src="http://teipsiko.lt/images/teipsiko_headeris.jpg" width="100%"  alt="Tei-Psi-Ko pagrindinis" onclick="fadeOutEffect()">
@@ -91,3 +91,4 @@ document.getElementById("myImg").addEventListener('click', fadeOutEffect);
   </div>
 </div>
 {%endblock main%}
+

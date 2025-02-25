@@ -1,0 +1,90 @@
+{% extends 'base.html'%}
+{%block main%}
+<div class="container">
+
+    <div class="row">
+        <div class="col-4">
+        <H1 align="center">Užklausos forma</H1>
+
+        <form method="post" action='/contact/' class="needs-validation">
+            {% csrf_token %}
+
+            <div class="mb-3">
+                <label for="{{ form.name.id_for_label }}" class="form-label">Vardas, Pavardė</label>
+
+                <input type="text" name="name" class="form-control {% if form.name.errors %}is-invalid{% endif %}" id="{{ form.name.id_for_label }}" placeholder="Įveskite savo vardą" required>
+                <div class="invalid-feedback">
+                    {% if form.name.errors %}
+                    {% for error in form.name.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.email.id_for_label }}" class="form-label">El.paštas</label>
+                <input type="email" name="email" id="{{ form.email.id_for_label }}" class="form-control" placeholder="Įveskite savo el.paštą">
+
+                <div class="invalid-feedback">
+                    {% if form.email.errors %}
+                    {% for error in form.email.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="{{ form.phone.id_for_label }}" class="form-label">Telefonas</label>
+                <input type="tel" name="phone" id="{{ form.phone.id_for_label }}" class="form-control" placeholder="+37061234567">
+                <div class="invalid-feedback">
+                    {% if form.phone.errors %}
+                    {% for error in form.phone.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="{{ form.subject.id_for_label }}" class="form-label">Žinutės pavadinimas</label>
+                <input name="subject" id="{{ form.subject.id_for_label }}" class="form-control" placeholder="Įveskite žinutės pavadinimą">
+                <div class="invalid-feedback">
+                    {% if form.subject.errors %}
+                    {% for error in form.subject.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="{{ form.message.id_for_label }}" class="form-label">Užklausos tekstas</label>
+                <textarea name="message" id="{{ form.message.id_for_label }}" class="form-control" placeholder="Įveskite užklausos tekstą" rows="4" cols="50"></textarea>
+                <div class="invalid-feedback">
+                    {% if form.message.errors %}
+                    {% for error in form.message.errors %}
+                    {{ error }}
+                    {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+
+            <input type="submit" class="btn btn-primary" value="Siųsti">
+        </form>
+    </div>
+
+
+<div class="col-2"></div>
+        <div class="col-4">
+         <h1 >Kontaktai</h1>
+                        <br>
+                            <p>UAB Psichologiniai sprendimai</p>
+                            <p></p>
+                            <p>
+                                <a href="tel:+37060237703" class="cont">+370 602 37703</a><br>
+                                <a class="cont" href="mailto:">mbfixjob@gmail.com</a>
+                            </p>
+                        </div>
+        </div>
+</div>
+{%endblock main%}

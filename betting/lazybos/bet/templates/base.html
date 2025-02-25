@@ -78,20 +78,20 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="/">Pradžia</a>
                     </li>
-                  <li class="nav-item">
-                        <a class="nav-link" href="/forma">Paslaugos</a>
-                    </li>
-                  <li class="nav-item">
-                        <a class="nav-link" href="/komanda">Komanda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Apie Mus</a>
-                    </li>
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Apie mus</a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="/">Paslaugos</a>
+                          <a class="dropdown-item" href="/komanda">Komanda</a>
+                          <a class="dropdown-item" href="#">Rekvizitai</a>
+                          <div class="dropdown-divider"></div>
+                        </div>
+                      </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/blog/posts/">Naujienos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Kontaktai</a>
+                        <a class="nav-link" href="/contact">Susisiekti</a>
                     </li>
                     {%if request.user.is_authenticated %}
 
