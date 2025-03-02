@@ -6,8 +6,8 @@ from django.core.mail import EmailMessage
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
-def say_hello(request):
-    return render(request, 'main.html', {"name":"mygtukas"})
+def paslaugos(request):
+    return render(request, 'paslaugos.html')
 
 def simple_form(request, methods=['GET', 'POST']):
     form = StudentForm()

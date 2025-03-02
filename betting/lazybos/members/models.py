@@ -16,7 +16,7 @@ class Kategorija(models.Model):
         return self.title
 
 # Create your models here.
-class Article(models.Model):
+class Straipsnis(models.Model):
     auto_increment_id = models.AutoField(primary_key=True)
     pavadinimas = models.CharField(max_length=100)
     autorius = models.ForeignKey(Autorius, on_delete=models.CASCADE)
