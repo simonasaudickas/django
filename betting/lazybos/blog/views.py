@@ -11,7 +11,7 @@ from .forms import PostForm, CommentForm
 
 class PostListView(View):
     def get(self, request):
-        posts_per_page = 4
+        posts_per_page = 16
         posts = Post.objects.all().order_by('-id')
         paginator = Paginator(posts, posts_per_page)
         page_number = request.GET.get('page')
