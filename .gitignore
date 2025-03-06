@@ -18,3 +18,5 @@ __pycache__/
 # Ignore IDE project files
 .vscode/
 .idea/
+
+pythonProject/
